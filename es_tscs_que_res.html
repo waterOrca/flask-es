@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+    <link rel="icon" href="http://obj-cache.cloud.ruanbekker.com/favicon.ico">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>找問卷 - 社會變遷問卷</title>
+
+  </head>
+  <body>
+
+  <div class="container">
+    <div style="background:transparent !important" class="jumbotron">
+      <div style="font-family: 'Pacifico', cursive;">
+          <center>
+          <font size="6">Search for 社會變遷問卷</font>
+          </center>
+      </div>
+    </div>
+  <a href="/es_tscs_que_in" target="_blank">回查詢首頁</a>
+<!--
+  <form action="/es_tscs_que_output" method="post">
+    <div class="input-group">
+      <input type="text" class="form-control input-lg" name="input" placeholder="Search，目前沒功能"  autofocus>
+      <div class="input-group-btn">
+        <button class="btn btn-primary btn-lg" type="submit">
+          <i class="glyphicon glyphicon-search"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+-->
+  <center>
+      <h1>Results: 「{{ searchTSCS }}」 回傳{{ res['hits']['total']['value'] }}筆 </h1>
+  </center>
+
+  <table class="table">
+    <thead>
+      <tr>
+	    <th>Score</th>
+		<th>年度</th>
+        <th>ID</th>
+        <th>期次</th>
+        <th>問卷</th>
+        <th>主題</th>
+		<th>變項說明</th>
+      </tr>
+    </thead>
+
+{% for hit in res['hits']['hits'] %}
+    <tbody>
+      <tr>
+        <th scope="row">{{ hit['_score'] }}</th>
+          <td>{{ hit['_source']['year'] }}</td>
+          <td>{{ hit['_source']['id'] }}</td>
+          <td>{{ hit['_source']['per'] }}</td>
+          <td>{{ hit['_source']['que'] }}</td>
+          <td>{{ hit['_source']['sub'] }}</td>
+          <td>{{ hit['_source']['var'] }}</td>
+      </tr>
+    </tbody>
+	
+{% endfor %}
+  </table>
+
+        <footer class="footer">
+          <p>&copy; 2021 Survey Research Data Archive All rights reserved.</p>
+        </footer>
+
+      </div>
+    </div>
+  </body>
+</html>
