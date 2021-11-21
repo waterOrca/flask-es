@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>全文檢索_問卷</title>
+</head>
+<body>
+    <h2>找問卷</h2>
+    <h4>1.語料來源: SRDA後台資料，匯入396,889筆</h4>
+    <h4>2.匯入紀要: 一字一索引、支援簡體中文</h4>
+    <h4>3.搜尋紀要: 簡單字符串查詢(simple_query_string)、預設聯集、最小評分設在1、支援+, |, -等</h4>
+    <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/query-dsl-simple-query-string-query.html">官方說明文件</a>
+    <h4></h4>
+    <form action="/es_ques_res">
+        查詢詞 <input type="search" name="searchQues" placeholder="查詢詞" size="100"/>
+        <button>點撃送出查詢</button>
+    </form>
+    <hr/>
+	<h4>例子：<p>
+	環境保護<p>
+	環境保護 經濟發展<p>
+	"環境保護" "經濟發展"<p>
+	"環境保護" + "經濟發展"<p>
+	"環境保護" + "經濟發展" +-none<p>
+	</h4>
+	<hr/>
+    <a href="https://www.elastic.co/elastic-stack">Elasticsearch官方網站</a>
+	</p>
+    <a href="/" target="_blank">回首頁</a>
+</body>
+</html>
